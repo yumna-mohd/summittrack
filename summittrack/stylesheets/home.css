@@ -1,0 +1,1396 @@
+/*------------GENERAL STYLING---------------------*/
+body {
+  margin: 0;
+  position: relative;
+  background: none; /* Remove the background image from here */
+  box-sizing: border-box;
+}
+
+body.freeze-scroll {
+  overflow: hidden; /* Freeze background scroll */
+}
+
+/*setting the body background image*/
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background-image: url(../image/purple_mount.jpg);
+  width: 100%;
+  background-size: cover;
+  filter: brightness(100%);
+  z-index: -1; /* Ensure the overlay is behind other content */
+}
+
+/*defining the external font for the application title*/
+@font-face {
+  font-family: 'Gagalin';
+  src: url(../fonts/Gagalin-Regular.otf) format(opentype);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Hero';
+  src: url(../fonts/\HeroLight-Regular.otf) format(opentype);
+  font-style: normal;
+}
+
+/* Blur effect for the background */
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  filter: blur(5px); /* Adjust the blur effect as needed */
+  z-index: 999; /* Ensure it appears below the challenge images */
+  display: none; /* Initially hidden */
+}
+
+/*hidden container for pop ups*/
+.hidden-list-container {
+  display: none; /* Initially hide all challenge images */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure it appears above other content */
+  width: 40%;
+  height: 100vh;
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-image: url(../image/blank-bg.png);
+}
+
+/*styling the scroll bar of the hidden containers*/
+.hidden-list-container::-webkit-scrollbar {
+width: 5px;
+}
+
+.hidden-list-container::-webkit-scrollbar-track {
+background-color: transparent;
+}
+
+.hidden-list-container::-webkit-scrollbar-thumb {
+background-color: #A795BC;
+width: 5px;
+}
+
+/*class for hover effect*/
+.hover:hover{
+  text-shadow: 0 0 5px   #48abe0 ;
+}
+/*class for white color*/
+.white{
+  color:white;
+}
+
+/*----------------------welcome page styling------------------------*/
+.welcome-main{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  margin:0 auto;
+  background-color: rgba(0, 0, 0, 0.585);
+}
+
+.welcome-head{
+  margin:0 5vw 0 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-head h1{
+  font-family: 'Gagalin';
+  text-align: center;
+  font-size: 2.5vw !important;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.welcome-head p{
+  font-family: "Hero";
+  font-size: 0.7vw;
+  letter-spacing: 0.1vw;
+  color: white;
+}
+
+.welcome-head button{
+  width: 10vw;
+  height: 2vw;
+  border-radius: 0.5vw;
+  color:white;
+  background-color: #35255B;
+  margin-bottom: 2vw;
+  margin-top: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-head button > a{
+  text-decoration: none;
+  color: white;
+  font-size: 1vw;
+  font-family: "Hero";
+  letter-spacing: 0.1vw;
+}
+
+.welcome-head button:hover{
+  box-shadow: 0 0 50px 3px   #9db8d4;
+  background-color: #AB6683;
+}
+/*-----------------------profile page-------------------*/
+.profile-main{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 42%;
+  height: 50%;
+  margin-top:2.5vw;
+  background-color: rgba(0, 0, 0, 0.585);
+  border: 0.2px solid white;
+  border-radius: 1vw;
+}
+.profile-box .profile-icon{
+  width:13%;
+  margin-top:2vw;
+}
+.profile-box .home-pink-icon{
+  width:5%;
+}
+.profile-box p{
+  color:white;
+  font-family: "Hero";
+  letter-spacing: 0.2vw;
+  margin:1vw 0 0 0;
+  font-size:14px;
+}
+
+.profile-box button:hover{
+  box-shadow: 0 0 50px 3px #48abe0;
+}
+.profile-box button a{
+  color:white;
+  font-family: "Hero";
+  letter-spacing: 0.2vw;
+  text-decoration: none;
+  margin: 0;
+}
+
+.home-icon {
+  border: none;
+  width: 2vw;
+  height: 2vw;
+  background-image: url('../image/home-pink.png');
+  background-size: cover; /* Ensure the image covers the entire button */
+  background-position: center; /* Center the image within the button */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+  background-color: transparent;
+  border-radius: 100%;
+  text-decoration: none;
+}
+.home-icon:hover{
+  text-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 50px 3px #48abe0;}
+.logout{
+  width: 10vw;
+  height: 2vw;
+  border-radius: 0.2vw;
+  color:white;
+  background-color: transparent;
+  border: 0.1px solid white;
+  margin-top: 1.5vw;
+  margin-bottom: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*-------------home page styling-----------------------*/
+/*styling the main container wiwth dark transparent background*/
+.home-btns{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    margin:0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*styling the h1 element (summittrack)*/
+.home-btns h1 {
+  font-family: 'Gagalin';
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 500;
+  color: #D7EAF8;
+  margin:0;
+}
+
+/*styling the user icon in home page*/
+.home-btns i{
+  color: white;
+  font-size: 1vw;
+  margin-top:1vw;
+  margin-bottom: 2vw;
+}
+
+/*setting the margin to 0 for the heading section*/
+.home-head1{
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/*adding hover effect to the users icon in home page*/
+.home-btns .home-head1 i:hover {
+  text-shadow: 0 0 5px #fff;
+}
+
+/*styling the p element within the heading section*/
+.home-btns p{
+  margin:1.5vw 0 0.8vw 0;
+  color: #D49DB4;
+  font-family: 'Hero';
+  letter-spacing: 0.5vw;
+  font-size: 0.7vw;
+  font-weight:300;
+}
+
+/* setting the width of the hr image in the heading section*/
+.home-btns img{
+  width: 50%;
+  margin-bottom: 0;
+}
+
+/*styling the 3 buttons container in the home page*/
+.three-btns {
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+
+/*styling the three button in the home page*/
+.three-btns > button {
+  width: 26%;
+  margin: 0.8vw 0;
+  height: 3.5vw;
+  border-radius: 0.5vw;
+  background-color: transparent;
+  border: 0.1px solid rgba(255, 255, 255, 0.327);
+  color: white;
+  padding: 0;
+}
+
+/*styling the anchor tag within the three button in the home page*/
+.three-btns > button > a {
+  display: block; 
+  text-align: center; 
+  text-decoration: none;
+  color: white;
+  font-size: 1vw;
+  font-family: 'Hero';
+  letter-spacing: 0.3vw;
+  width: 100%; 
+  height: 100%;
+  line-height: 3.5vw;
+  border: none; 
+}
+
+/*adding hover effects to the three button in the home page*/
+.three-btns > button:hover{
+  text-shadow: 0 0 5px   #D49DB4  ;
+  box-shadow: 0 0 50px 3px   #9db8d4;
+}
+
+/*styling container for the search book button in the home page*/
+.two-btns {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/*styling the search book button*/
+.two-btns > button {
+  width: 40%;
+  margin: 1vw 0;
+  height: 2.5vw;
+  border-radius: 0.5vw;
+  background-color: #d49db458; /* Add background with opacity */
+  padding: 0;
+}
+
+/*styling the anchor tag with in the search book button in the home page*/
+.two-btns > button > a {
+  display: block;
+  text-align: center;
+  font-family: 'Hero';
+  text-decoration: none;
+  color: white;
+  font-size: 0.9vw;
+  letter-spacing: 0.2vw;
+  width: 100%; 
+  height: 100%; 
+  line-height: 2.2vw; 
+  border: none; 
+}
+
+/*adding hover effect to the search book button in the home page*/
+.two-btns > button:hover{
+  text-shadow: 0 0 5px   #D49DB4  ;
+  box-shadow: 0 0 50px 3px   #9db8d4;
+  border: 0.5px solid white;
+}
+
+
+/*----------------------category page styling----------------------*/
+/*styling the category container that has all the content*/
+
+.category-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+  height: 100vh;
+}
+
+/*container for each category pop up*/
+.category-btns{
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  justify-content: center;
+  align-items: center;
+}
+
+/*make the back icon white*/
+.category-btns > i{
+  color: white;
+}
+
+/*styling each category button*/
+.category-btns > button{
+  font-family: "Hero";
+  font-weight: 600;
+  font-size: 0.8vw;
+  letter-spacing: 0.3vw;
+  width: 26%;
+  margin-top:1vw;
+  height: 2.5vw;
+  border-radius: 0.5vw;
+  background-color: transparent;
+  border: 0.1px solid white;
+  color:white;
+}
+
+/*styling the heading section of the pop up container*/
+.category-head{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  padding:8vw 0 0 0;
+  margin-bottom: 2vw;
+}
+
+/*styling the p element in the heading section of the pop up container*/
+.category-head > p{
+  font-size: 1vw;
+  color:#D49DB4;
+}
+
+/*a class that center aligns content it contains*/
+.center-align{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*styling the back arrow icon within the class center align*/
+.center-align > i{
+  margin: 0.5vw 0 0 0;
+  font-size: 1vw;
+  color:#D49DB4;
+}
+
+/*adding hover effect to the back arrow icon*/
+.center-align > i:hover{
+  text-shadow: 0 0 5px   #D49DB4  ;
+  box-shadow: 0 0 50px 3px   #9db8d4;
+}
+
+/*setting the image width within the center align class*/
+.center-align > img{
+  margin: 0;
+  width: 60%;
+}
+
+/*adding hover effects to the category buttons*/
+.category-btns > button:hover{
+  text-shadow: 0 0 5px   #D49DB4  ;
+  box-shadow: 0 0 50px 3px   #9db8d4;
+}
+
+/*styling class that contains the book list*/
+.category-book{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/*styling class that contains each book card*/
+.category-book-card{
+  width:40%; 
+  height:30vw; 
+  margin: 1vw;
+  border-radius: 0.5vw;
+  margin-bottom: 0.5vw;
+  padding: 0;
+  border:0.1px solid white;
+  background-color: rgba(255, 255, 255, 0.396);
+}
+
+/*class for the image in book card*/
+.img-card{
+  border-radius: 0.5vw;
+  width:98%; 
+  height: 60%;
+}
+.img-card > img{
+  width:100% !important;
+  height: 100%;
+  border-radius: 0.5vw;
+}
+.category-book-card > h6{
+  font-size:1vw;
+  color:white;
+  margin:1.5vw 0 1vw 0;
+}
+.category-book-card > i{
+  font-size:0.6vw;
+  color:white;
+  margin:0;
+}
+
+/*container within the hidden contaniner*/
+.center-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+}
+#category {
+  display: none; /* Initially hide the section */
+}
+#book{
+  display:none;
+}
+
+/*----------------------all books page--------------------*/
+
+/* Main container that contains list of the books */
+.book-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 67%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.25rem;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrolling on the main container */
+}
+
+/* Container for heading section */
+.all-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Styling h1 in heading section in all books page */
+.all-list h1 {
+  font-family: 'Gagalin';
+  letter-spacing: 0.3vw;
+  font-size: 2vw;
+  font-weight: 500;
+  color: #D7EAF8;
+  margin: 3vw 0 0 0;
+}
+
+/* Styling p in heading section in all books page */
+.all-list p {
+  color: #D49DB4;
+  font-family: 'Hero';
+  letter-spacing: 0.5vw;
+  margin: 0.5vw 0 0 0;
+}
+
+/* Styling i in heading section in all books page */
+.all-list i {
+  color: white;
+  margin-top: 0.5vw;
+}
+
+/* Styling image in heading section in all books page */
+.all-list img {
+  width: 27%;
+  margin: 0;
+}
+
+/* Container for the table and search box */
+.table-container {
+  width: 100%;
+  overflow: hidden; /* Hide any overflow from the container */
+}
+
+/* Search container */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5vw;
+  margin-bottom: 2vw;
+}
+
+.search-control {
+  height: 1.5vw;
+  width: 20vw;
+  padding-left: 0.5vw;
+  font-size: 1vw;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Table container to enable scrolling */
+.table-responsive {
+  width: 100%;
+  height: 60vh; /* Adjust height to fit within the main container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-color:  rgba(40, 15, 62, 0.349);
+  border-radius: 0.25rem;
+}
+
+/* All book list table styling */
+.all-list-table {
+  width: 100%;
+  color: #212529;
+  border-collapse: collapse;
+  overflow-y: auto;
+  background-color: transparent;
+  color: white;
+
+} 
+.all-list-table th,
+.all-list-table td {
+  text-align: center;
+  padding: 0.5vw;
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+  font-size: 0.75vw;
+  font-family: "Hero";
+}
+.all-list-table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+.all-list-table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+/* Styling the book images in the table */
+.all-list-table td > img {
+  width: 100%;
+  height: auto;
+  max-width: 50px; /* Set a max width to ensure images do not exceed a certain size */
+  max-height: 50px; /* Set a max height to ensure images do not exceed a certain size */
+}
+
+/* Custom scrollbar styling */
+.table-responsive::-webkit-scrollbar {
+  width: 0.4vw;
+}
+.table-responsive::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: #A795BC;
+  border-radius: 1vw;
+}
+
+
+  /*-------------------------------view book-----------------------*/
+
+  /*continer contianing the book details*/
+  .view-book-template{
+    font-family: 'Hero';
+    padding:0;
+  }
+
+  /*targeting elements in the container containing the book details*/
+  .view-book-template .category-head > p{
+    font-family: "hero";
+    letter-spacing: 0.3vw;
+    margin:0 0 0.5vw 0;
+  }
+  
+  .view-book-template .category-head .center-align > img{
+    margin:0 0 0.5vw 0;
+  }
+
+  .category-title{
+    margin:1vw 0 0 0;
+    color: black;
+    font-family: 'Hero';
+    letter-spacing: 0.5vw;
+    text-align: center;
+    font-size:1.5vw;
+  }
+
+  /*container containing the book detail body content*/
+  .book-detail-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:white
+  }
+
+  .book-detail-body > div > img{
+    width: 10vw;
+  }
+
+  .res-title-category{
+    text-align: center;
+    margin-top:1vw;
+  }
+
+  .res-title-category > h6{
+    font-size: 1vw;
+    margin:0;
+  }
+
+  .res-title-category > p{
+    font-size: 0.8vw;
+  }
+
+/*styling the author text*/
+  .author{
+    text-align: center;
+    padding-right:4vw;
+    padding-left:4vw;
+  }
+
+  .author h5{
+    font-size: 0.9vw;
+    margin: 0;
+    color: #D49DB4;;
+  }
+
+  .author p{
+    font-size: 0.8vw;
+  }
+
+  /*styling the summary text*/
+  .summary{
+    text-align: center;
+    padding-right:5vw;
+    padding-left:5vw;
+    margin-bottom: 3vw;
+  }
+
+  .summary h5{
+    font-size: 0.9vw;
+    margin: 0;
+    color: #D49DB4;
+  }
+
+  .summary p{
+    font-size: 0.8vw;
+  }
+
+/*adding a blank view for the book detail pop up container*/
+  .blank-view-book-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../image/bg-blank.png);
+    background-size: cover;
+    z-index: 999; /* Ensure it appears below the challenge images */
+    display: none; /* Initially hidden */
+  }
+
+  /*---------------------------Add book page--------------------*/
+
+ /*main container of add book page*/
+  .add-book-start{
+    width: 100%;
+  }
+
+  /*container container the visible section of the page*/
+  .add-book-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100vh;
+    text-align: center;
+    margin:0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+/*heading and add button container*/
+  .add-content{
+    width: 60%;
+  }
+
+  .add-content > p{
+    color: white;
+    font-size: 0.8vw;
+    margin-bottom: 1vw;
+    margin-top: 3vw;
+    font-family: "Hero";
+    letter-spacing: 0.2vw;
+  }
+
+  .add-content > button{
+    width: 52%;
+    margin-top:1.5vw;
+    height: 2vw;
+    border-radius: 0.5vw;
+    border: 0.1px solid white;
+    color: white;
+    font-size: 0.8vw;
+    background-color: transparent; /* Add background with opacity */
+  }
+
+  .add-content > button:hover{
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 50px 3px #48abe0;
+  }
+
+  .add-content > div > h1{
+    color: white;
+    font-family: "Hero";
+    letter-spacing: 0.5vw;
+    font-size: 1.5vw;
+    margin-bottom: 0.5vw;
+  }
+
+  .add-content > div > img{
+    width: 100%;
+  }
+
+  .add-content > div > a > i{
+    margin-top:1vw;
+    color: white;
+  }
+
+  /*hidden container for the uplod book form*/
+  .hidden-upload-container{
+    display: none; 
+    position: fixed;
+    z-index: 1000; 
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40%;
+    overflow-y: auto; 
+    color:white;
+    height: 100%;
+  }
+
+  /*styling scroll bar for the hidden upload container*/
+  .hidden-upload-container::-webkit-scrollbar {
+    width: 5px;
+  }
+  .hidden-upload-container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .hidden-upload-container::-webkit-scrollbar-thumb {
+    background-color: #A795BC;
+    width: 5px;
+  }
+
+/*upload pop up main container*/
+  .main-upload{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  /*upload pop up heading*/
+  .main-upload > .hidden-upload-head{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-upload > .hidden-upload-head > h5{
+    font-size: 1.2vw;
+    letter-spacing: 0.4vw;
+    margin: 2.7vw 0 0.5vw 0;
+    font-family: "Hero";
+    letter-spacing: 0.3vw;
+  }
+
+  .main-upload > .hidden-upload-head > img{
+    width: 50%;
+  }
+
+  .main-body-upload{
+    display: flex;
+    text-align: left;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    height:fit-content;
+  }
+
+/*upload form*/
+  .main-body-upload > form{
+    width: 100%;
+    font-family: "Hero";
+    padding-bottom: 0;
+    height: fit-content;
+    margin-top:2.5vw;
+    font-size: 1vw;
+  }
+
+/*upload form div*/
+.main-body-upload > form > div> input{
+    border: 0.1px solid white;
+    width: 99%;
+    background:none;
+    margin-bottom: 5px;
+    height: 2vw;
+    border-radius: 0.2vw;
+    margin-top:0.4vw;
+    font-size: 1vw;
+    color:white;
+  }
+
+  .main-body-upload > form > div> a{
+    text-decoration: none;
+  }
+
+  .main-body-upload > form > div> label{
+    margin-bottom: 5px;
+  }
+
+  .main-body-upload > form > div> select{
+    border: 0.1px solid white;
+    background:none;
+    width: 100%;
+    margin-top:10px;
+    margin-bottom: 10px;
+    height: 2vw;
+    color: white;
+  }
+
+  /* form dropdown text styling */
+  .main-body-upload > form > div > select option {
+  color: black; 
+  }
+
+  /* form textarea styling */
+  .main-body-upload > form > div> textarea{
+    border: 0.1px solid white;
+    background:none;
+    width: 99%;
+    margin-top:10px;
+    margin-bottom:10px;
+    color:white;
+  }
+
+  /* Button dark styling */
+  .btn-dark1 {
+    background-color: rgb(69, 69, 69);
+    border: 0.2px solid white;
+    color:white;
+    width: 10vw !important;
+    padding:0.5vw 3vw 0.5vw 3vw !important;
+    border-radius: 0.2vw;
+    font-size: 1vw !important;
+  }
+
+  .btn-dark2 {
+    background-color: rgb(0, 0, 0);
+    border: 0.2px solid white;
+    padding:0.5vw !important;
+    color:white;
+    width: 10vw;
+    border-radius: 0.2vw;
+    font-size: 1vw !important;
+  }
+
+  .btn-dark1:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 50px 3px #48abe0;
+    border-color: 2px solid white;
+  }
+
+  .btn-dark2:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 50px 3px #48abe0;
+    border-color: 2px solid white;
+  }
+  
+/*-----------------------Media Queries for tablet------------------------*/
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+
+  /*--- Welcome Page*/
+  .welcome-main{
+    width: 60%;
+  }
+  .welcome-head h1{
+    font-size: 3.5vw !important;
+  }
+  .welcome-head p{
+    font-size: 1.2vw;
+  }
+  .welcome-head button{
+    width: 15vw;
+    height: 3vw;
+  }
+  .welcome-head button > a{
+    font-size: 1.6vw;
+  }
+
+  /*---- profile page ----*/
+  .profile-box{
+    width: 70%;
+  }
+  .logout {
+    width: 15vw;
+    height: 3vw;
+    font-size: 1.8vw;
+    margin-top:3vw;
+}
+
+  /*--- home page ---*/
+  .three-btns > button {
+    width: 36%;
+  }
+  .home-btns p{
+    font-size: 1.2vw;
+  }
+  .home-btns i{
+    font-size: 2vw;
+    margin-top:2vw;
+  }
+  .home-btns h1 {  
+    font-size: 3.5vw;
+  } 
+  .home-btns{
+    width: 60%;
+  } 
+  .two-btns > button {
+    height: 3.5vw;
+  }
+  .two-btns > button > a {
+    line-height: 3.2vw; /* Vertically center the text within the button */
+    font-size: 1.3vw;
+  }
+  .hidden-list-container {
+    width: 60%;
+  }
+  .search-container .search-control {
+    height:2.2vw;
+    width: 24vw;
+    padding-left: 1.5vw;
+    font-size: 1.5vw;
+  }
+  .btn-dark1 {
+    font-size: 1.5vw !important;
+    width: 12vw;
+  }
+  .btn-dark2 {
+    font-size: 1.5vw !important;
+    width: 20vw;
+  }
+  .home-icon {
+    width: 3vw;
+    height: 3vw;
+    margin-top:2vw;
+  }
+
+  /*---- category page ---*/
+  .category-btns > button{
+    font-size: 1.4vw;
+    width: 46%;
+    margin-top:1.6vw;
+    height: 4.5vw;
+  }
+  .category-head > p{
+  font-size: 3vw;
+  }
+  .category-book-card{
+    width:12vw; 
+    height:20vw; 
+  }
+  .img-card{
+    width:12vw; 
+    height: 11vw;
+  }
+  .category-book-card > h6{
+    font-size:1.5vw;
+  }
+  .category-book-card > i{
+    font-size:1vw;
+  }
+
+  /*---all books---*/
+  .book-list-container {
+    width: 87%;
+  }
+  .all-list h1 {
+    font-size: 3vw;  
+  }
+  .all-list p{
+    font-size: 2vw;
+  }
+  .all-list i{
+    margin-top:2.5vw;
+  }
+  .all-list-table th,
+  .all-list-table td {
+  font-size: 1.4vw;
+  }
+  .all-list-table td > img{
+    width: 35%;
+    height:40%;
+  }
+
+  /*view book*/
+  .book-detail-body > div > img{
+    width: 20vw;
+  }
+  .res-title-category > h6{
+    font-size: 2vw;
+  }
+  .res-title-category > p{
+    font-size: 1.3vw;
+  }
+  .author h5{
+    font-size: 1.3vw;
+  }
+  .author p{
+    font-size: 1.3vw;
+  }
+  .summary h5{
+    font-size: 1.3vw;
+  }
+  .summary p{
+    font-size: 1.3vw;
+  }
+
+  /*add book*/
+  .add-book-main{
+    width: 60%;
+  }
+  .add-content{
+    width: 60%;
+  }
+  .add-content > p{
+    font-size: 1.2vw !important;
+  }
+  .add-content > button{
+    height: 2.8vw !important;
+    font-size: 1.5vw !important;
+  }
+  .add-content > div > h1{
+    font-size: 2vw !important;
+  }
+  .hidden-upload-container{
+    width: 60%;
+  }
+  .main-upload > .hidden-upload-head > h5{
+    font-size: 3vw !important;
+  }
+  .main-body-upload > form{
+    font-size: 1.5vw;
+  }
+  .main-body-upload > form > div> input{
+    height: 3vw;
+    font-size: 1.5vw;
+  }
+  .main-body-upload > form > div> label{
+    margin-bottom: 5px;
+  }
+}
+
+
+/*---------------------------------Media Queries for phones----------------------------*/ 
+
+
+@media screen and (max-width: 480px) {
+
+  /*---- welcome page ----*/
+  .welcome-main{
+    width: 80%;
+  }
+  .welcome-head h1{
+    font-size: 5.5vw !important;
+  }
+  .welcome-head p{
+    font-size: 2.1vw;
+  }
+  .welcome-head button{
+    width: 20vw;
+    height: 6vw;
+  }
+  .welcome-head button > a{
+    font-size: 2.5vw;
+  }
+
+  /*---- profile page ----*/
+  .profile-box {
+    width: 90%;
+  }
+
+  .profile-box .profile-icon {
+      width: 25%;
+      margin-bottom:3vw;
+
+  }
+
+  .home-icon {
+      width: 6vw;
+      height: 6vw;
+      margin-top:3vw;
+  }
+
+  .logout {
+      width: 30vw;
+      height: 8vw;
+      font-size: 3vw;
+      margin-top:3vw;
+  }
+
+  /*---- home page ---*/
+  .home-btns{
+    width: 80%;
+  } 
+  .home-btns h1 {  
+    font-size: 5.5vw;
+  } 
+  .home-btns i{
+    font-size: 3vw;
+    margin-top:4vw;
+  }
+  .home-btns p{
+    font-size: 2.2vw;
+  }
+  .three-btns > button {
+    width: 56%;
+    height: 6.5vw;
+  }
+  .three-btns > button > a {
+    font-size: 2vw;
+    line-height: 5.5vw; /* Vertically center the text within the button */
+  }
+  .two-btns > button {
+    height: 5.5vw;
+  }
+  .two-btns > button > a {
+    line-height: 4.5vw; /* Vertically center the text within the button */
+    font-size: 2vw;
+  }
+  .hidden-list-container {
+    width: 80%;
+  }
+  .search-container .search-control {
+    height:3.4vw;
+    width: 50vw;
+    padding-left: 1.5vw;
+    font-size: 3vw;
+    margin-bottom: 2vw;
+  }
+  .btn-dark1 {
+    font-size: 2.5vw !important;
+    width: 15vw;
+  }
+  .btn-dark2 {
+    font-size: 2.5vw !important;
+    width: 25vw;
+  }
+
+  /*---- category page ---*/
+  .category-btns > button{
+    font-size: 2.4vw;
+    width: 66%;
+    margin-top:3.6vw;
+    height: 6.5vw;
+  }
+  .category-head > p{
+    font-size: 5vw;
+  }
+  .category-book-card{
+    width:20vw; 
+    height:28vw; 
+  }
+  .img-card{
+    width:20vw; 
+    height: 17vw;
+  }
+  .category-book-card > h6{
+    font-size:2.5vw;
+  }
+  .category-book-card > i{
+    font-size:2vw;
+  }
+
+  /*--- all books ---*/
+  .book-list-container {
+    width: 100%;
+  }
+  .all-list h1 {
+    font-size: 6vw !important;
+    margin:0;
+
+  }
+  .all-list p{
+    font-size: 2.5vw;
+  }
+  .all-list i{
+    margin-top:3.5vw;
+  }
+  .all-list img{
+    width: 57% !important;
+    margin:2.5vw !important;
+  }
+  .list-contain{
+    height: 50%;
+  }
+  .all-list-table th,
+  .all-list-table td {
+    font-size: 2.2vw;
+  }
+  .all-list-table td > img{
+    width: 55%;
+    height:60%;
+  }
+  .all-list h1 {
+    font-size: 3.5vw;
+  }
+  .all-list p{
+    font-size: 2.5vw;
+  }
+
+  /*view book*/
+  .book-detail-body > div > img{
+    width: 35vw;
+    padding-top:2vw;
+  }
+  .res-title-category > h6{
+    font-size: 3vw;
+  }
+  .res-title-category > p{
+    font-size: 1.8vw;
+  }
+  .author h5{
+    font-size: 2.3vw;
+  }
+  .author p{
+    font-size: 2.3vw;
+  }
+  .summary h5{
+    font-size: 2.3vw;
+    margin: 0;
+    color: #D49DB4;
+  }
+  .summary p{
+    font-size: 2.3vw;
+  }
+
+  /*add book*/
+  .add-book-main{
+    width: 80%;
+  }
+  .add-content{
+    width: 80%;
+  }
+  .add-content > p{
+    font-size: 1.8vw !important;
+  }
+  .add-content > button{
+    height: 3.8vw !important;
+    font-size: 2.5vw !important;
+  }
+  .add-content > div > h1{
+    font-size: 3.5vw !important;
+  }
+  .hidden-upload-container{
+    width: 100%;
+  }
+  .main-upload > .hidden-upload-head > h5{
+    font-size: 5vw !important;
+  }
+  .main-body-upload{
+    width: 95%;
+  }
+  .main-body-upload > form{
+    font-size: 3vw;
+    margin-right: 7vw;
+    margin-left: 7vw;
+  }
+  .main-body-upload > form > div> input{
+    height: 4vw;
+    font-size: 2vw;
+  }
+  .main-body-upload > form > div> label{
+    margin-bottom: 5px;
+  }
+  .main-body-upload > form > div> select{
+    height: 5vw;
+  }
+}

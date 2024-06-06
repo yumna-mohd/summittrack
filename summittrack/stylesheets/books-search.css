@@ -1,0 +1,246 @@
+/*------------GENERAL STYLING---------------------*/
+html{
+  height: 100%;
+}
+body {
+  margin: 0;
+  position: relative;
+  background: none;
+  box-sizing: border-box;
+  height: 100%;
+}
+/*freezing scroll*/
+body.freeze-scroll {
+  overflow: hidden;
+}
+/*background image*/
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background-image: url(../image/cute-scenery.jpg);
+  width: 100%;
+  background-size: cover;
+  filter: brightness(70%);
+  z-index: -1;
+}
+/*font faces*/
+@font-face {
+  font-family: 'Gagalin';
+  src: url(../fonts/Gagalin-Regular.otf) format(opentype);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Hero';
+  src: url(../fonts/HeroLight-Regular.otf) format(opentype);
+  font-style: normal;
+}
+/*seach main section containing all the content in the page*/
+/*displaying content is column format*/
+.search-main {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding: 4vw auto 0 auto;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/*seach heading section stylings*/
+.search-head {
+  padding: 3vw 5vw 0 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*setting the font color for the a and i elements in seach head section*/
+.search-head > a > i{
+  color: white;
+}
+/*styling the h1 element in the search head section*/
+.search-main h1 {
+  font-family: 'Gagalin';
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 500;
+  color: #D49DB4;
+  margin: 0;
+}
+/*styling the p element in search main div*/
+.search-main p {
+  margin: 1vw 0 1vw 0;
+  color: #D49DB4;
+  font-family: 'Hero';
+  letter-spacing: 0.3vw;
+  font-size: 0.7vw;
+  font-weight: 300;
+}
+/*setting the width and margin of the image in the search main div*/
+.search-main img {
+  width: 50%;
+  margin: 0 0 1vw 0;
+}
+/*setting the width of the continer containing the id #search*/
+#search {
+  width: 100%;
+}
+/*setting the width of the continer containing the id #myform*/
+#myform {
+  width: 100%;
+}
+/*styling the div for the search result*/
+.search-result {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2vw;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 52vw;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.319);
+  border-radius: 1vw;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+  overflow-y: auto;
+}
+/*styling the id result*/
+#result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1vw 0 0 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+/*styling the scrollbar width and height*/
+#result::-webkit-scrollbar {
+  width: 5px;
+  height: 5vx;
+}
+/*styling the scrollbar background color to transparent*/
+#result::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+/*setting background color, width and height of the scrollbar thumb*/
+#result::-webkit-scrollbar-thumb {
+  background-color: #A795BC;
+  width: 5px;
+  height: 5vx;
+}
+/*styling the div in the element containing the id result*/
+#result > div {
+  flex: 1 1 calc(100% - 2vw);
+  padding: 1vw;
+  border: 0.1px solid white;
+  box-sizing: border-box;
+}
+/*styling the image in #result*/
+#result img {
+  width: 8vw;
+  height: auto;
+  margin-bottom: 1vw;
+}
+/*styling the button in #rsult*/
+#result button {
+  background-color: transparent;
+  border: 1px solid drd;
+  border-radius: 0.5vw;
+  color: #fff;
+  padding: 0.5vw 1vw;
+  font-size: 0.8vw;
+  text-decoration: none;
+}
+/*setting button hover*/
+#result button:hover {
+  background-color: #fff;
+  color: #000;
+}
+/*styling the book container in js*/
+.book-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2vw;
+  padding: 1vw;
+  border: 1px solid #ccc;
+  border-radius: 0.5vw;
+  box-sizing: border-box;
+}
+/*styling the h5 element in book container*/
+.book-container > h5 {
+  font-size: 0.8vw;
+  color: #A795BC;
+  font-family: 'Hero';
+  letter-spacing: 0.3vw;
+  font-weight: 300;
+}
+.hover:hover{
+  text-shadow: 0 0 5px   #48abe0 ;
+}
+
+/*--------------------Media queries For tablets---------------*/
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .search-main {
+    width: 60%;
+  }
+  .search-main h1 {
+    font-size: 3.5vw;
+  }
+  .search-main p {
+    font-size: 1.1vw;
+  }
+  #result > div {
+    flex: 1 1 calc(100% - 2vw);
+  }
+  .book-container > h5 {
+    font-size: 1.5vw;
+  }
+  #result img {
+    width: 10vw;
+  }
+  #result button {
+    padding: 1vw 2vw;
+    font-size: 1.5vw;
+  }
+}
+
+/*------------------------Media Queries for phones---------------------*/
+@media screen and (max-width: 480px){
+  .search-main {
+    width: 80%;
+  }
+  #result > div {
+    flex: 1 1 calc(100% - 2vw);
+    margin-bottom: 0;
+  }
+  .book-container > h5 {
+    font-size: 2.5vw;
+    margin-bottom:5px;
+    margin-top:0;
+  }
+  #result img {
+    width: 13vw;
+  }
+  #result button {
+    padding: 1vw 2vw;
+    font-size: 1.5vw;
+  }
+  .search-main h1 {
+    font-size: 4.5vw;
+  }
+  .search-main p {
+    font-size: 1.9vw;
+  }
+}

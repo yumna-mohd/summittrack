@@ -1,0 +1,333 @@
+/*defining the external font for the application title*/
+@font-face {
+    font-family: 'Gagalin';
+    src: url(../fonts/Gagalin-Regular.otf) format(opentype);
+    font-weight: normal;
+    font-style: normal;
+}
+/*smooth scrolling for entire document*/
+html {
+    scroll-behavior: smooth;
+}
+/*boxing sizing*/
+body,
+html {
+    box-sizing: border-box;
+}
+/*adding bg image to the body tag*/
+body{
+    background-image: url('../image/login-bg.png');
+    background-size: cover;
+    margin:0;
+}
+
+/*-----------------form styling-------------------------*/
+
+.user-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "poppins";
+    height: 100vh;
+}
+/*container to that keeps */
+.log-container {
+    width: 32vw;
+    margin-top: 0vw;
+}
+.reg-container{
+    width: 32vw;
+    margin-top: 2vw;
+}
+
+.register-form {
+    box-sizing: border-box;
+    padding: 0vw 2vw 0.3vw 2vw;
+    background: rgba(255, 255, 255, 0); /* Fully transparent background */    
+    border-radius: 0.6vw;
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 2px solid white;
+    width: 100%;
+}
+
+.user-main .log-main {
+    position: relative;
+    display: flex;
+}
+.user-main .alert-close {
+    cursor: pointer;
+    height: 2vw;
+    width: 2vw;
+    line-height: 35px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    background: #62c16e;
+    border-radius: 50px;
+    color: #fff;
+    text-align: center;
+}
+.user-main form {
+    margin-top:0vw;
+    margin-bottom: 30px;
+}
+.register-now {
+    text-align: center;
+}
+.user-main h1 {
+    font-family: 'Gagalin';
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: #D7EAF8;
+    margin-top:0;
+}
+.user-main h2 {
+    display: inline-block;
+    margin:1vw 0 0 0;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 600;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+.user-main h3 {
+    margin: 0;
+    font-size: 10px;
+    width: 100%;
+    text-align: center;
+
+}
+.user-main p {
+    margin: 0;
+    font-size: 13px;
+    color: #c4c4c4;
+}
+.register-form input {
+    margin-bottom: 15px;
+    font-size: 1vw;
+    text-align: left;
+    padding: 0.5vw 1vw;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    transition: 0.3s all ease;
+    border-radius: 0.2vw;
+    background-color: white;
+}
+
+.user-main .log-btn{
+    margin-top:1vw;
+    background-color: #35255B;
+}
+.user-main .log-btn:hover{
+    background-color: #AB6683;
+}
+.forgot-pass p{
+    margin-top:3vw !important;
+}
+.reg-forgot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.reg-forgot > p {
+    margin: 0;
+    padding: 0;
+}
+.register-now > p > a{
+    color: white;
+    text-decoration: none;
+    font-style: italic;
+}
+.register-now > p > a:hover{
+    text-shadow: 0 0 5px #fff;
+
+}
+.reg-forgot > p > a{
+    color: white;
+    text-decoration: none;
+    font-style: italic;
+}
+.reg-forgot > p > a:hover{
+    text-shadow: 0 0 5px #fff;
+
+}
+.register-form button {
+    margin-top: 0.5vw;
+    border-radius: 0.2vw;
+    font-size: 1vw;
+    color: #fff;
+    width: 100%;
+    background: #006db5;
+    border: none;
+    padding: 0.5vw;
+    font-weight: 500;
+}
+.user-main button:hover {
+    background: #4ca356;
+}
+/*--------------styling the alert---------------*/
+.alert {    
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    margin: 1rem 0;
+}
+/*adding bg color to the success alert */
+.alert-success {
+    background-color: #42ba96;
+    font-size: 1vw;
+    padding-top:0.2vw;
+    padding-bottom:0.2vw;
+    text-align: center;
+}
+/*styling the danger alert */
+.alert-danger {
+    background-color: #fc5555;
+    font-size: 0.8vw;
+    padding-top:0.2vw;
+    padding-bottom:0.2vw;
+    text-align: center;
+}
+/*styling the info alert*/
+.alert-info {
+    background-color: #2E9AFE;
+    font-size: 1vw;
+    padding-top:0.2vw;
+    padding-bottom:0.2vw;
+    text-align: center;
+}
+/*styling the warning alert*/
+.alert-warning {
+    background-color: #ff9966;
+    font-size: 1vw;
+    padding-top:0.2vw;
+    padding-bottom:0.2vw;
+    text-align: center;
+}
+/*styling the continue with google button*/
+.google-log{
+    text-align: center;
+    margin-top: 1vw;
+    padding:0.3vw;
+    border-radius: 0.2vw;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.google-log a{
+    text-decoration: none;
+    color:white;
+    font-size: 0.9vw;
+}
+/*adding hover effect*/
+.google-log:hover{
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 50px 3px #edafcd;
+}
+.forgot-btn{
+    background-color: #35255B !important;
+}
+.forgot-btn:hover{
+    background-color: #AB6683 !important;
+}
+.change-pass{
+    background-color: #35255B !important;
+}
+.change-pass:hover{
+    background-color: #AB6683 !important;
+}
+
+/*--------------------Media queries For tablets---------------*/
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .log-container {
+        width: 52vw;
+    }
+    .reg-container{
+        width: 52vw;
+    }
+    .google-log{
+        height: 4vw;
+    }
+    .google-log a{
+        font-size: 1.5vw;
+    }
+    .user-main .log-btn{
+        height: 4vw;
+        font-size: 2vw;
+    }
+    .register-form input {
+        height: 3.5vw;
+        font-size: 14px;
+    }
+    .user-main h2 {
+        font-size: 2.5vw;
+    }
+    .user-main p {
+        font-size: 10.5px;
+    }
+    .forgot-btn{
+        height: 4vw;
+        font-size: 1.7vw !important;
+    }
+    .alert-danger {
+        font-size: 1.5vw;
+    }
+    .alert-info {
+        font-size: 1.5vw;
+    }
+    .alert-warning {
+        font-size: 1.5vw;
+    }
+    
+}
+/*------------------------Media Queries for phones---------------------*/
+@media screen and (max-width: 480px){
+    .log-container {
+        width: 72vw;
+    }
+    .reg-container{
+        width: 72vw;
+    }
+    .google-log{
+        height: 8vw;
+        padding:0;
+    }
+    .google-log a{
+        font-size: 2.5vw;
+        margin:0;
+    }
+    .user-main .log-btn{
+        height: 8vw;
+        font-size: 4vw;
+    }
+    .register-form input {
+        height: 6.5vw;
+        font-size: 12px;
+    }
+    .user-main h2 {
+        font-size: 4.5vw;
+    }
+    .user-main p {
+        font-size: 2.5vw;
+    }
+    .forgot-btn{
+        height: 8vw;
+        font-size: 4vw !important;
+    }
+    .alert-danger {
+        font-size: 2.5vw;
+    }
+    .alert-info {
+        font-size: 2.5vw;
+    }
+    .alert-warning {
+        font-size: 2.5vw;
+    }
+}
